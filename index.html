@@ -78,7 +78,7 @@ nav {
   transition: padding .3s;
 }
 .nav-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
-.nav-logo svg { height: 32px; width: auto; }
+.nav-logo svg { height: 38px; width: auto; }
 .nav-logo-text { display: flex; flex-direction: column; }
 .logo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.95rem; letter-spacing: 5px; color: #fff; line-height: 1; }
 .logo-name span { color: var(--cyan); }
@@ -377,7 +377,7 @@ footer {
   display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center;
 }
 .f-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-.f-logo svg { height: 26px; width: auto; opacity: 0.2; }
+.f-logo svg { height: 28px; width: auto; opacity: 0.25; }
 .f-logo-t { display: flex; flex-direction: column; }
 .f-logo-name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.8rem; letter-spacing: 4px; color: #1e1e1e; }
 .f-logo-name span { color: rgba(0,212,255,0.15); }
@@ -417,11 +417,24 @@ footer {
 <!-- NAV -->
 <nav aria-label="Navigation principale">
   <a href="#" class="nav-logo" aria-label="DYN Records — Accueil">
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="48" height="48" rx="0"/>
-      <path d="M8 12 L8 36 L20 36 C28 36 36 30 36 24 C36 18 28 12 20 12 Z" stroke="#00D4FF" stroke-width="2" fill="none"/>
-      <path d="M22 20 L40 24 L22 28 Z" fill="#00D4FF"/>
-      <rect x="6" y="10" width="2" height="28" fill="#00D4FF" opacity="0.3"/>
+    <!-- DYN Beat Vault Logo — geometric triangle with rising arrows -->
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Outer left diagonal lines -->
+      <line x1="10" y1="82" x2="38" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="18" y1="82" x2="46" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Outer right diagonal lines -->
+      <line x1="90" y1="82" x2="62" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="82" y1="82" x2="54" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Center vertical arrow shaft -->
+      <line x1="50" y1="90" x2="50" y2="18" stroke="#00D4FF" stroke-width="5" stroke-linecap="round"/>
+      <!-- Left arrow branch (inner left) -->
+      <line x1="50" y1="18" x2="34" y2="42" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Right arrow branch (inner right) -->
+      <line x1="50" y1="18" x2="66" y2="42" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <!-- Inner left rising line -->
+      <line x1="38" y1="62" x2="50" y2="38" stroke="#00D4FF" stroke-width="4" stroke-linecap="round"/>
+      <!-- Inner right rising line -->
+      <line x1="62" y1="62" x2="50" y2="38" stroke="#00D4FF" stroke-width="4" stroke-linecap="round"/>
     </svg>
     <div class="nav-logo-text">
       <div class="logo-name">DYN <span>RECORDS</span></div>
@@ -743,10 +756,16 @@ footer {
 <!-- FOOTER -->
 <footer>
   <a href="#" class="f-logo" aria-label="DYN Records">
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M8 12 L8 36 L20 36 C28 36 36 30 36 24 C36 18 28 12 20 12 Z" stroke="#00D4FF" stroke-width="2" fill="none"/>
-      <path d="M22 20 L40 24 L22 28 Z" fill="#00D4FF"/>
-      <rect x="6" y="10" width="2" height="28" fill="#00D4FF" opacity="0.3"/>
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="10" y1="82" x2="38" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="18" y1="82" x2="46" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="90" y1="82" x2="62" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="82" y1="82" x2="54" y2="28" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="50" y1="90" x2="50" y2="18" stroke="#00D4FF" stroke-width="5" stroke-linecap="round"/>
+      <line x1="50" y1="18" x2="34" y2="42" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="50" y1="18" x2="66" y2="42" stroke="#00D4FF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="38" y1="62" x2="50" y2="38" stroke="#00D4FF" stroke-width="4" stroke-linecap="round"/>
+      <line x1="62" y1="62" x2="50" y2="38" stroke="#00D4FF" stroke-width="4" stroke-linecap="round"/>
     </svg>
     <div class="f-logo-t">
       <div class="f-logo-name">DYN <span>RECORDS</span></div>
@@ -775,7 +794,6 @@ function handleSubmit(e) {
     e.target.reset();
   }, 3000);
 }
-// Intersection observer for scroll animations
 if ('IntersectionObserver' in window) {
   var els = document.querySelectorAll('.srv, .rel, .avc, .tarif, .feat');
   var io = new IntersectionObserver(function(entries){
