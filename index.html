@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DYN Records — Studio d'enregistrement indépendant à Douai (59). Enregistrement, mixage, coaching artistique pour artistes urbains indépendants de Hauts-de-France.">
+<title>DYN RECORDS — Studio Indépendant · Douai (59)</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0D0D0D;
+  --cyan: #00D4FF;
+  --silver: #C0C0C0;
+  --white: #FFFFFF;
+  --border: #1E1E1E;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: 'Open Sans', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.4rem 4rem;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid #1a1a1a;
+}
+.nav-logo-wrap .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 5px; color: #fff; }
+.nav-logo-wrap .logo span { color: var(--cyan); }
+.nav-logo-wrap .tag { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; letter-spacing: 3px; color: #333; text-transform: uppercase; margin-top: 2px; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.68rem; letter-spacing: 2px; color: var(--silver); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover { color: var(--cyan); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-ig { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 2px; color: #444; text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.nav-ig:hover { color: var(--cyan); }
+.nav-cta { background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-end;
+  padding: 0 4rem 6rem;
+  padding-top: 80px;
+  position: relative;
+  background: #0D0D0D;
+  overflow: hidden;
+}
+.hero-bg-text {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: 22vw; color: rgba(255,255,255,0.018);
+  letter-spacing: -5px; white-space: nowrap;
+  pointer-events: none; user-select: none;
+}
+.hero-tape {
+  writing-mode: vertical-rl;
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: 5rem; color: rgba(255,255,255,0.03);
+  letter-spacing: -2px; line-height: 1;
+  position: absolute; right: 0; top: 80px; bottom: 0;
+  display: flex; align-items: center;
+}
+.hero-left { position: relative; z-index: 2; }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: 0.62rem; letter-spacing: 4px; color: var(--cyan);
+  text-transform: uppercase; margin-bottom: 2.5rem;
+}
+.hero-kicker::before { content: ''; display: block; width: 24px; height: 1px; background: var(--cyan); }
+.hero-title {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.9; letter-spacing: -3px;
+  color: #fff; margin-bottom: 2.5rem;
+}
+.hero-title .accent { color: var(--cyan); }
+.hero-title .dim { color: #1e1e1e; }
+.hero-sub { font-size: 0.88rem; color: var(--silver); line-height: 2; margin-bottom: 3rem; max-width: 400px; }
+.hero-actions { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 4rem; flex-wrap: wrap; }
+.btn-primary { background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 2rem; border-radius: 2px; text-decoration: none; }
+.btn-ghost { color: var(--silver); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid #333; padding-bottom: 2px; }
+.hero-stats { display: flex; gap: 3rem; }
+.stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: #fff; }
+.stat-label { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 3px; color: #444; text-transform: uppercase; margin-top: 2px; }
+.hero-right { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; }
+.hero-pills { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+.pill { border: 0.5px solid #1e1e1e; padding: 0.5rem 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 3px; color: #333; text-transform: uppercase; }
+.pill.active { border-color: var(--cyan); color: var(--cyan); }
+
+/* TICKER */
+.ticker { background: var(--cyan); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 22s linear infinite; }
+.ticker-item { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 3px; color: #0D0D0D; text-transform: uppercase; padding: 0 2.5rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ABOUT */
+.about {
+  padding: 7rem 4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  border-bottom: 0.5px solid #111;
+}
+.about-ghost { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 7rem; color: rgba(0,212,255,0.05); line-height: 1; margin-bottom: -0.5rem; }
+.about-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3.2rem); color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
+.about-text { font-size: 0.9rem; color: var(--silver); line-height: 2; }
+.about-feats { display: flex; flex-direction: column; gap: 1.5rem; }
+.feat { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; border: 0.5px solid #111; }
+.feat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.6rem; letter-spacing: 3px; color: var(--cyan); flex-shrink: 0; padding-top: 2px; }
+.feat-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; color: #fff; margin-bottom: 0.4rem; }
+.feat-text { font-size: 0.8rem; color: #555; line-height: 1.7; }
+
+/* SERVICES */
+.services { padding: 7rem 4rem; }
+.section-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.62rem; letter-spacing: 4px; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+.section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--cyan); }
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 4rem); line-height: 0.95; color: #fff; margin-bottom: 0; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #111; margin-top: 4rem; }
+.service-item { background: var(--bg); padding: 3rem 2.5rem; transition: background .3s; }
+.service-item:hover { background: #0e0e0e; }
+.s-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.6rem; letter-spacing: 3px; color: #2a2a2a; margin-bottom: 2rem; }
+.s-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 1rem; }
+.s-desc { font-size: 0.85rem; color: #555; line-height: 1.8; }
+.s-arrow { margin-top: 2rem; color: var(--cyan); font-size: 1rem; }
+
+/* PORTFOLIO */
+.portfolio { padding: 7rem 4rem; background: #080808; }
+.releases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem; }
+.release-card {}
+.release-cover { aspect-ratio: 1; position: relative; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; }
+.rc1 { background: linear-gradient(135deg, #0a0a0a, #111520); }
+.rc2 { background: linear-gradient(135deg, #0a1010, #051015); }
+.rc3 { background: linear-gradient(135deg, #0d0d12, #0d0d1a); }
+.rc4 { background: linear-gradient(135deg, #100a0a, #180505); }
+.cover-letter { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.5rem; color: rgba(255,255,255,0.06); letter-spacing: -2px; }
+.cover-tag { position: absolute; top: 0.8rem; left: 0.8rem; background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.55rem; letter-spacing: 2px; padding: 2px 7px; text-transform: uppercase; }
+.r-artist { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; color: #fff; margin-bottom: 0.2rem; }
+.r-track { font-size: 0.78rem; color: #444; }
+.r-type { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 2px; color: var(--cyan); text-transform: uppercase; margin-top: 0.4rem; }
+
+/* AVIS */
+.avis { padding: 7rem 4rem; }
+.avis-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+.avis-link { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 2px; color: var(--cyan); text-decoration: none; text-transform: uppercase; }
+.avis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #111; }
+.avis-card { background: var(--bg); padding: 2.5rem; }
+.avis-card.hi { background: #080808; }
+.stars { color: var(--cyan); font-size: 0.7rem; letter-spacing: 4px; margin-bottom: 1.5rem; }
+.avis-text { font-size: 0.9rem; color: #777; line-height: 2; font-style: italic; margin-bottom: 2rem; }
+.avis-line { width: 20px; height: 1px; background: var(--cyan); margin-bottom: 1rem; }
+.avis-author { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+.avis-role { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 2px; color: #444; text-transform: uppercase; margin-top: 3px; }
+
+/* TARIFS */
+.tarifs { padding: 7rem 4rem; background: #080808; }
+.tarifs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 0.5px solid #111; margin-top: 4rem; }
+.tarif { padding: 3rem 2.5rem; border-right: 0.5px solid #111; position: relative; }
+.tarif:last-child { border-right: none; }
+.tarif.featured { background: #0a1520; }
+.tarif-badge { display: inline-block; background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.55rem; letter-spacing: 2px; padding: 2px 8px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.tarif-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 3px; color: #444; text-transform: uppercase; margin-bottom: 2rem; }
+.tarif-price { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 4rem; color: #fff; line-height: 1; border-top: 0.5px solid #1a1a1a; padding-top: 1.5rem; margin-bottom: 1.5rem; }
+.tarif.featured .tarif-price { color: var(--cyan); }
+.tarif-price sup { font-size: 1.5rem; vertical-align: super; }
+.tarif-price sub { font-size: 0.9rem; color: #444; font-weight: 400; }
+.tarif-feats { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2.5rem; }
+.tf { font-size: 0.82rem; display: flex; gap: 0.8rem; }
+.tf.on { color: var(--silver); }
+.tf.on::before { content: '↗'; color: var(--cyan); font-size: 0.7rem; flex-shrink: 0; }
+.tf.off { color: #333; }
+.tf.off::before { content: '—'; color: #222; font-size: 0.7rem; flex-shrink: 0; }
+.tarif-btn { display: block; text-align: center; padding: 0.9rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 0.5px solid #222; color: #444; }
+.tarif.featured .tarif-btn { background: var(--cyan); color: #0D0D0D; border-color: var(--cyan); }
+
+/* CTA BAND */
+.cta-band {
+  padding: 6rem 4rem;
+  border-top: 0.5px solid #111;
+  display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center;
+  position: relative; overflow: hidden;
+}
+.cta-band::before { content: 'BOOK'; position: absolute; right: -1rem; top: 50%; transform: translateY(-50%); font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 16rem; color: rgba(0,212,255,0.025); line-height: 1; pointer-events: none; }
+.cta-kicker { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.62rem; letter-spacing: 4px; color: var(--cyan); text-transform: uppercase; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+.cta-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--cyan); }
+.cta-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 3.2rem); color: #fff; line-height: 1.05; }
+.cta-actions { display: flex; flex-direction: column; gap: 1rem; position: relative; z-index: 1; }
+.cta-btn-main { background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 1.2rem 2.5rem; text-decoration: none; text-align: center; white-space: nowrap; }
+.cta-btn-sec { color: #444; font-family: 'Montserrat', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; text-align: center; }
+
+/* CONTACT */
+.contact { padding: 7rem 4rem; background: #080808; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.ci { display: flex; gap: 1rem; align-items: flex-start; }
+.ci-icon { color: var(--cyan); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.ci-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 3px; color: #444; text-transform: uppercase; margin-bottom: 3px; }
+.ci-val { font-size: 0.9rem; color: var(--silver); }
+.ci-val a { color: var(--cyan); text-decoration: none; }
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 2px; color: #444; text-transform: uppercase; }
+.form-group input, .form-group select, .form-group textarea { background: #0D0D0D; border: 0.5px solid #1e1e1e; color: var(--white); font-family: 'Open Sans', sans-serif; font-size: 0.88rem; padding: 0.9rem 1rem; outline: none; transition: border-color .2s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--cyan); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select option { background: #111; }
+.form-submit { background: var(--cyan); color: #0D0D0D; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; padding: 1.1rem 2rem; border: none; cursor: pointer; align-self: flex-start; }
+
+/* FOOTER */
+footer { padding: 3rem 4rem; border-top: 0.5px solid #111; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 5px; color: #2a2a2a; }
+.footer-logo span { color: rgba(0,212,255,0.15); }
+.footer-sub { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; letter-spacing: 3px; color: #222; text-transform: uppercase; margin-top: 4px; }
+.footer-mid { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 2px; color: #2a2a2a; text-transform: uppercase; }
+.footer-links { display: flex; gap: 2rem; justify-content: flex-end; }
+.footer-links a { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; letter-spacing: 2px; color: #333; text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.footer-links a:hover { color: var(--cyan); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 4rem; }
+  .hero-right { display: none; }
+  .about, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .releases-grid { grid-template-columns: 1fr 1fr; }
+  .avis-grid { grid-template-columns: 1fr; }
+  .tarifs-grid { grid-template-columns: 1fr; }
+  .tarif { border-right: none; border-bottom: 0.5px solid #111; }
+  .cta-band { grid-template-columns: 1fr; }
+  section, .about, .services, .portfolio, .avis, .tarifs, .contact { padding: 4rem 1.5rem; }
+  footer { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="logo">DYN <span>RECORDS</span></div>
+    <div class="tag">Independent Label · Douai (59)</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://instagram.com/dynrecords" target="_blank" class="nav-ig">IG</a>
+    <a href="#contact" class="nav-cta">Réserver</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">DYN</div>
+  <div class="hero-tape">RECORDS</div>
+  <div class="hero-left">
+    <div class="hero-kicker">Studio d'enregistrement indépendant — Douai, Nord (59)</div>
+    <h1 class="hero-title">
+      INDE<span class="accent">PEN</span><br>
+      <span class="dim">—</span>DENCE<br>
+      SOUNDS<br>
+      <span class="accent">BETTER.</span>
+    </h1>
+    <p class="hero-sub">Enregistrement · Mixage · Coaching artistique<br>Pour les artistes urbains indépendants<br>de Hauts-de-France</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">🎙 Réserver une session</a>
+      <a href="#portfolio" class="btn-ghost">Écouter le portfolio →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">59</div>
+        <div class="stat-label">Nord · Douai</div>
+      </div>
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Services</div>
+      </div>
+      <div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Indépendance</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pills">
+      <div class="pill active">Rap · R&amp;B · Trap</div>
+      <div class="pill">Hauts-de-France</div>
+      <div class="pill">Studio Indépendant</div>
+      <div class="pill active">Ouvert 7j/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Studio d'enregistrement</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Mixage professionnel</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Coaching artistique</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Services visuels</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Promotion</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Douai · Lens · Lille</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Studio d'enregistrement</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Mixage professionnel</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Coaching artistique</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Services visuels</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Promotion</span>
+    <span class="ticker-item">✦</span>
+    <span class="ticker-item">Douai · Lens · Lille</span>
+    <span class="ticker-item">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about">
+  <div>
+    <div class="about-ghost">DYN</div>
+    <h2 class="about-title">UN LABEL.<br>UN STUDIO.<br>TA CARRIÈRE.</h2>
+    <p class="about-text" style="margin-top:1.5rem">DYN Records n'est pas qu'un studio. C'est une structure indépendante qui accompagne les artistes urbains du Nord — de l'enregistrement à la sortie — avec des tarifs accessibles et une vision claire : <em style="color:#fff">l'indépendance sonne mieux ici.</em></p>
+  </div>
+  <div class="about-feats">
+    <div class="feat">
+      <div class="feat-num">01</div>
+      <div>
+        <div class="feat-title">Accessibilité</div>
+        <p class="feat-text">Tarifs pensés pour les artistes qui débutent et ceux qui évoluent. Pas de barrière à l'entrée.</p>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat-num">02</div>
+      <div>
+        <div class="feat-title">Proximité</div>
+        <p class="feat-text">Basé à Douai. Studio à taille humaine, relation directe avec l'ingénieur son. Pas d'intermédiaire.</p>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat-num">03</div>
+      <div>
+        <div class="feat-title">Qualité broadcast</div>
+        <p class="feat-text">Équipement pro, oreille calibrée, rendu prêt pour Spotify, Deezer et YouTube.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">01 / Ce qu'on fait</div>
+  <h2 class="section-title">NOS<br>SERVICES</h2>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="s-num">001</div>
+      <div class="s-name">🎙 Studio & Enregistrement</div>
+      <p class="s-desc">Cabine insonorisée, micro broadcast, interface pro. Tu arrives avec tes textes, tu repars avec un fichier prêt au mix.</p>
+      <div class="s-arrow">→</div>
+    </div>
+    <div class="service-item">
+      <div class="s-num">002</div>
+      <div class="s-name">🎚 Mixage</div>
+      <p class="s-desc">Balance, EQ, compression, effets. Calibré pour claquer sur Spotify, casque et enceintes. Rendu propre garanti.</p>
+      <div class="s-arrow">→</div>
+    </div>
+    <div class="service-item">
+      <div class="s-num">003</div>
+      <div class="s-name">🎓 Coaching Artistique</div>
+      <p class="s-desc">Flow, technique vocale, écriture. Accompagnement humain de proximité pour progresser vite.</p>
+      <div class="s-arrow">→</div>
+    </div>
+    <div class="service-item">
+      <div class="s-num">004</div>
+      <div class="s-name">🎬 Services Visuels</div>
+      <p class="s-desc">Clip vidéo, photos artistiques, covers. Tout le visuel pour exister sur les réseaux et plateformes.</p>
+      <div class="s-arrow">→</div>
+    </div>
+    <div class="service-item">
+      <div class="s-num">005</div>
+      <div class="s-name">📣 Promotion</div>
+      <p class="s-desc">Stratégie de sortie, pitching playlists, réseaux. Du studio à ta première écoute en ligne.</p>
+      <div class="s-arrow">→</div>
+    </div>
+    <div class="service-item" style="display:flex;align-items:center;justify-content:center;">
+      <a href="#tarifs" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;text-decoration:none;">Voir les tarifs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-label">02 / Réalisations</div>
+  <h2 class="section-title">DERNIÈRES<br>RÉALISATIONS</h2>
+  <div class="releases-grid">
+    <div class="release-card">
+      <div class="release-cover rc1"><span class="cover-letter">N</span><div class="cover-tag">Session</div></div>
+      <div class="r-artist">Nostal</div>
+      <div class="r-track">Enregistrement + Mixage</div>
+      <div class="r-type">Rap · Douai</div>
+    </div>
+    <div class="release-card">
+      <div class="release-cover rc2"><span class="cover-letter">M</span><div class="cover-tag">Mixage</div></div>
+      <div class="r-artist">MAMZO</div>
+      <div class="r-track">Mixage complet</div>
+      <div class="r-type">Trap · Lens</div>
+    </div>
+    <div class="release-card">
+      <div class="release-cover rc3"><span class="cover-letter">NK</span><div class="cover-tag">Session</div></div>
+      <div class="r-artist">NK</div>
+      <div class="r-track">Session + Mixage</div>
+      <div class="r-type">Rap · Lille</div>
+    </div>
+    <div class="release-card">
+      <div class="release-cover rc4"><span class="cover-letter">NIX</span><div class="cover-tag">Prod</div></div>
+      <div class="r-artist">NIX Beats</div>
+      <div class="r-track">Production instrumentale</div>
+      <div class="r-type">Drill · Douai</div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="avis" id="avis">
+  <div class="avis-head">
+    <div>
+      <div class="section-label">03 / Témoignages</div>
+      <h2 class="section-title">ILS ONT<br>ENREGISTRÉ ICI</h2>
+    </div>
+    <a href="#contact" class="avis-link">Laisser un avis →</a>
+  </div>
+  <div class="avis-grid">
+    <div class="avis-card hi">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="avis-text">« Nix est à l'écoute, pro et accessible. J'ai enregistré mon premier son dans les meilleures conditions. Le mixage a vraiment mis mon track en valeur. »</p>
+      <div class="avis-line"></div>
+      <div class="avis-author">Nostal</div>
+      <div class="avis-role">Artiste rap · Douai</div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="avis-text">« J'ai trouvé exactement ce dont j'avais besoin : un studio local avec un rendu professionnel. Le coaching m'a aidé à trouver mon flow. »</p>
+      <div class="avis-line"></div>
+      <div class="avis-author">MAMZO</div>
+      <div class="avis-role">Artiste trap · Lens</div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★ ★ ★ ★ ☆</div>
+      <p class="avis-text">« Ambiance sérieuse, équipement top, Nix sait exactement ce qu'il fait. Mon son est sorti propre du premier coup. »</p>
+      <div class="avis-line"></div>
+      <div class="avis-author">NK</div>
+      <div class="avis-role">Artiste rap · Lille</div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="tarifs" id="tarifs">
+  <div class="section-label">04 / Transparent</div>
+  <h2 class="section-title">TARIFS</h2>
+  <div class="tarifs-grid">
+    <div class="tarif">
+      <div class="tarif-name">Session Débutant</div>
+      <div class="tarif-price"><sup>€</sup>30</div>
+      <div class="tarif-feats">
+        <div class="tf on">1h en studio</div>
+        <div class="tf on">Enregistrement vocal</div>
+        <div class="tf on">Fichier WAV livré</div>
+        <div class="tf off">Mixage non inclus</div>
+      </div>
+      <a href="#contact" class="tarif-btn">Réserver</a>
+    </div>
+    <div class="tarif featured">
+      <div class="tarif-badge">Populaire</div>
+      <div class="tarif-name">Pack Artiste</div>
+      <div class="tarif-price"><sup>€</sup>80</div>
+      <div class="tarif-feats">
+        <div class="tf on">3h en studio</div>
+        <div class="tf on">Enregistrement + Mixage</div>
+        <div class="tf on">2 retours inclus</div>
+        <div class="tf on">Fichier WAV + MP3</div>
+      </div>
+      <a href="#contact" class="tarif-btn">Réserver</a>
+    </div>
+    <div class="tarif">
+      <div class="tarif-name">Suivi Mensuel</div>
+      <div class="tarif-price"><sup>€</sup>200<sub>/mois</sub></div>
+      <div class="tarif-feats">
+        <div class="tf on">Sessions dans quota</div>
+        <div class="tf on">Mixage inclus</div>
+        <div class="tf on">Coaching artistique</div>
+        <div class="tf on">Stratégie promo</div>
+      </div>
+      <a href="#contact" class="tarif-btn">Me contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <div class="cta-kicker">Prêt à passer au niveau supérieur ?</div>
+    <div class="cta-title">RÉSERVE TA SESSION.<br>TON SON MÉRITE MIEUX.</div>
+  </div>
+  <div class="cta-actions">
+    <a href="#contact" class="cta-btn-main">🎙 Réserver une session</a>
+    <a href="#tarifs" class="cta-btn-sec">Voir les tarifs →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">05 / Nous contacter</div>
+  <h2 class="section-title">RÉSERVER<br>& CONTACT</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Localisation</div>
+          <div class="ci-val">Douai, Nord-Pas-de-Calais (59)<br>Zone : Douai · Lens · Lille</div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">Instagram</div>
+          <div class="ci-val"><a href="https://instagram.com/dynrecords" target="_blank">@dynrecords</a></div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">⏰</div>
+        <div>
+          <div class="ci-label">Disponibilité</div>
+          <div class="ci-val">7j/7 sur rendez-vous<br>Réponse sous 24h</div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci-icon">💳</div>
+        <div>
+          <div class="ci-label">Paiement</div>
+          <div class="ci-val">Sur place — Espèces, Virement, SumUp</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nom">Ton nom</label>
+          <input type="text" id="nom" placeholder="Ex: Nostal" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Ton email</label>
+          <input type="email" id="email" placeholder="ton@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service souhaité</label>
+        <select id="service">
+          <option>Studio — Enregistrement</option>
+          <option>Mixage</option>
+          <option>Coaching artistique</option>
+          <option>Services visuels</option>
+          <option>Promotion</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Ton message</label>
+        <textarea id="message" placeholder="Décris ton projet, tes disponibilités..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Envoyer →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">DYN <span>RECORDS</span></div>
+    <div class="footer-sub">Independent Label · Douai (59)</div>
+  </div>
+  <div class="footer-mid">© 2026 DYN Records · Nick Hilopherne</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+    <a href="https://instagram.com/dynrecords" target="_blank">IG</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Message envoyé ! On te répond sous 24h.');
+}
+</script>
+
+</body>
+</html>
